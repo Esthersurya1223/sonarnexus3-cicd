@@ -30,7 +30,7 @@ pipeline {
 		stage('Deploy to Dev server') {
 			steps {
 				sshagent(['linux-agent']) {
-    sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.33.15 docker container run -itd -p 8080:8080 --name amiya  amiyaranjansahoo/dockerimg:${getLatestCommitID()}"
+    sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.11.193 docker container run -itd -p 8080:8080 --name amiya  amiyaranjansahoo/dockerimg:${getLatestCommitID()}"
 }
 			}
 		}
